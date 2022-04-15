@@ -1,7 +1,14 @@
 micronaut:
   application:
     name: mnAppVacuumCompany
+
 netty:
   default:
     allocator:
       max-order: 3
+
+mongodb:
+  uri: mongodb+srv://appGaiaDev:q1w2e3r4t5@atis-cluster-development-ympek.mongodb.net/Gaia?retryWrites=true
+
+db:
+  name: Gaia
