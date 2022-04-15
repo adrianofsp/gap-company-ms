@@ -12,3 +12,4 @@
 - [Micronaut HTTP Client documentation](https://docs.micronaut.io/latest/guide/index.html#httpClient)
 
 
+&#35;kotlin &#35;mongodb &#35;micronaut &#35;hexagonal &#35;architecture 
