@@ -10,7 +10,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/chekout@v2
+        uses: actions/checkout@v2
 
       - name: Runs Build
         run: ./gradew build -x test
