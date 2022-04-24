@@ -9,6 +9,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Update apt-get
+        uses: sudo apt-get update
+      - name: Install Java
+        uses: sudo apt install openjdk-11-jdk
+      - name: Check Java
+        uses: java --version
       - name: Checkout code
         uses: actions/checkout@v2
 
