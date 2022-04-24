@@ -11,5 +11,9 @@
 
 - [Micronaut HTTP Client documentation](https://docs.micronaut.io/latest/guide/index.html#httpClient)
 
+[commnent]: [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/weld/user)
+[commnent]: ![GH Actions Build Status](https://github.com/weld/core/actions/workflows/ci-actions.yml/badge.svg)
+[commnent]: [![Maven Central](http://img.shields.io/maven-central/v/org.jboss.weld.se/weld-se-shaded.svg)](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22weld-core-impl%22)
+[commnent]: [![License](https://img.shields.io/badge/license-Apache%20License%202.0-yellow.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
 
-&#35;kotlin &#35;mongodb &#35;micronaut &#35;hexagonal &#35;architecture 
+

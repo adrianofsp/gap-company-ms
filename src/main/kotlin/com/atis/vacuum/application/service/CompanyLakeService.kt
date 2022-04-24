@@ -5,7 +5,6 @@ import com.atis.vacuum.extensions.PaginationCommand
 import com.atis.vacuum.ports.repository.CompanyRepository
 import com.atis.vacuum.ports.usecases.CompanyUseCase
 import jakarta.inject.Singleton
-import org.reactivestreams.Publisher
 
 @Singleton
 class CompanyLakeService(
