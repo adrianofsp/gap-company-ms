@@ -10,7 +10,7 @@ jobs:
 
     steps:
       - name: Update apt-get
-        uses: sudo apt-get update
+        uses: java --version
 #      - name: Install Java
 #        uses: sudo apt install openjdk-11-jdk
 #      - name: Check Java
