@@ -1,7 +1,7 @@
 name: Build and Test
 
 on:
-  push:
+  pull_request:
     branches: [develop]
 
 jobs:
@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Run a one-line script
         run: echo Hello, world!
-      - name: Run a multi-line script
+      - name:11 Run a multi-line script
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
