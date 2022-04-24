@@ -9,14 +9,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Update apt-get
-        uses: java --version
-#      - name: Install Java
-#        uses: sudo apt install openjdk-11-jdk
-#      - name: Check Java
-#        uses: java --version
-#      - name: Checkout code
-#        uses: actions/checkout@v2
-#
-#      - name: Runs Build
-#        run: ./gradew build -x test
+      - uses: actions/checkout@v2
+      - name: Setup JDK-17
+        uses: actions/setup-java@v2
+        with:
+          java-version: 17
+          dustribution: 'adopt'
+      - name: Build with Gradle
+        run: ./gradew build -x test
