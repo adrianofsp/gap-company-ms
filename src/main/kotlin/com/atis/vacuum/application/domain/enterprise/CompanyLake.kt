@@ -12,7 +12,7 @@ data class CompanyLake @Creator @BsonCreator constructor(
     @BsonProperty("taxCode")
     var taxCode: String,
     @BsonProperty("state")
-    var state: String,
+    var state: String?,
     @BsonProperty("postalCode")
-    var postalCode: String
+    var postalCode: String?
 )

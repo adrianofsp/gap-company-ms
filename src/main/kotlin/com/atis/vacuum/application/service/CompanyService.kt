@@ -18,6 +18,15 @@ class CompanyService(
         limit = paginationCommand.max
     )
 
+    override fun findByName(
+        name: String,
+        paginationCommand: PaginationCommand
+    ) = companyRepository.findByName(
+        name = name,
+        skip = paginationCommand.offset,
+        limit = paginationCommand.max
+    )
+
 //    override fun createOrUpdate(company: Company) {
 ////        companyRepository.manage(company)
 //    }
