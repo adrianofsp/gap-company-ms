@@ -11,8 +11,13 @@ import javax.validation.Valid
 open class CompanyLakeController(
     private val companyUseCase: CompanyUseCase<CompanyLake>
 ) {
-
     @Get("/{?paginationCommand*}")
     open fun list(@Valid paginationCommand: PaginationCommand) = companyUseCase.findAll(paginationCommand)
+
+    @Get("/{name}{?paginationCommand*}")
+    open fun listByName(
+        name: String,
+        @Valid paginationCommand: PaginationCommand
+    ) = companyUseCase.findByName(name, paginationCommand)
 
 }

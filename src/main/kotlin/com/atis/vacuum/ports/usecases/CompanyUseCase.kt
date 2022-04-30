@@ -6,6 +6,7 @@ import org.reactivestreams.Publisher
 interface CompanyUseCase<T> {
 
     fun findAll(paginationCommand: PaginationCommand): Publisher<T>
-//    fun createOrUpdate(company: Company)
+
+    fun findByName(name: String, paginationCommand: PaginationCommand): Publisher<T>
 
 }

@@ -4,12 +4,16 @@ plugins {
     id("org.jetbrains.kotlin.plugin.allopen") version "1.6.10"
     id("com.github.johnrengelman.shadow") version "7.1.2"
     id("io.micronaut.application") version "3.3.2"
+    id("org.barfuin.gradle.jacocolog") version "2.0.0"
+    jacoco
 }
 
 version = "0.1"
 group = "com.atis.vacuum"
 
-val kotlinVersion=project.properties.get("kotlinVersion")
+val kotlinVersion = project.properties["kotlinVersion"]
+val jacocoDir = "$buildDir/reports/jococo"
+
 repositories {
     mavenCentral()
 }
@@ -40,15 +44,18 @@ dependencies {
     runtimeOnly("ch.qos.logback:logback-classic")
 }
 
-
 application {
     mainClass.set("com.atis.vacuum.ApplicationKt")
 }
+
 java {
     sourceCompatibility = JavaVersion.toVersion("17")
 }
 
 tasks {
+    clean {
+        doFirst { println("Executing cleanup") }
+    }
     compileKotlin {
         kotlinOptions {
             jvmTarget = "17"
@@ -59,8 +66,24 @@ tasks {
             jvmTarget = "17"
         }
     }
+    test {
+        finalizedBy(jacocoTestReport)
+    }
+    jacocoTestReport {
+        dependsOn(test)
+        reports {
+            html.outputLocation.set(layout.buildDirectory.dir("$jacocoDir/html"))
+        }
+    }
 }
+
+jacoco {
+    toolVersion = "0.8.7"
+    reportsDirectory.set(layout.buildDirectory.dir(jacocoDir))
+}
+
 graalvmNative.toolchainDetection.set(false)
+
 micronaut {
     runtime("netty")
     testRuntime("kotest")

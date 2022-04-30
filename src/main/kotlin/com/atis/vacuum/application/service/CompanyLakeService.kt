@@ -14,9 +14,15 @@ class CompanyLakeService(
     override fun findAll(
         paginationCommand: PaginationCommand
     ) = companyRepository.findAll(
-        skip = paginationCommand.offset,
-        limit = paginationCommand.max
+        paginationCommand = paginationCommand
     )
 
+    override fun findByName(
+        name:String,
+        paginationCommand: PaginationCommand
+    ) = companyRepository.findByText(
+        text = name,
+        paginationCommand = paginationCommand
+    )
 
 }
