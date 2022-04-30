@@ -14,9 +14,10 @@ open class CompanyLakeController(
     @Get("/{?paginationCommand*}")
     open fun list(@Valid paginationCommand: PaginationCommand) = companyUseCase.findAll(paginationCommand)
 
-    @Get("/test/{?paginationCommand*}")
+    @Get("/{name}{?paginationCommand*}")
     open fun listByName(
+        name: String,
         @Valid paginationCommand: PaginationCommand
-    ) = companyUseCase.findByName("love", paginationCommand)
+    ) = companyUseCase.findByName(name, paginationCommand)
 
 }
