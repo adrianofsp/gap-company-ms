@@ -1,6 +1,6 @@
 micronaut:
   application:
-    name: mnAppVacuumCompany
+    name: gap-company-ms
 
 netty:
   default:

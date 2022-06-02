@@ -9,9 +9,9 @@ plugins {
 }
 
 version = "0.1"
-group = "com.atis.vacuum"
+group = "com.atis.gap"
 
-val kotlinVersion = project.properties["kotlinVersion"]
+val kotlinVersion: String by project
 val jacocoDir = "$buildDir/reports/jococo"
 
 repositories {
@@ -45,7 +45,7 @@ dependencies {
 }
 
 application {
-    mainClass.set("com.atis.vacuum.ApplicationKt")
+    mainClass.set("com.atis.gap.ApplicationKt")
 }
 
 java {
@@ -84,12 +84,18 @@ jacoco {
 
 graalvmNative.toolchainDetection.set(false)
 
+tasks.withType<Jar> {
+    manifest {
+        attributes["Main-Class"] = "com.atis.gap.ApplcationKt"
+    }
+}
+
 micronaut {
     runtime("netty")
     testRuntime("kotest")
     processing {
         incremental(true)
-        annotations("com.atis.vacuum.*")
+        annotations("com.atis.gap.*")
     }
 }
 

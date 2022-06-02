@@ -1,2 +1,2 @@
 
-rootProject.name="mn-app-vacuum-company"
+rootProject.name="gap-company-ms"
