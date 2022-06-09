@@ -29,10 +29,10 @@ open class CompanyLakeController(
     ) = companyLakeRepository.findByText(text = name, paginationCommand = paginationCommand)
 
     @Post("/")
-    fun create(companyLake: CompanyLake) = companyLakeUseCase.manage(companyLake)
+    fun create(companyLake: CompanyLake) = companyLakeUseCase.createOrUpdate(companyLake)
 
     @Put("/")
-    fun update(companyLake: CompanyLake) = companyLakeUseCase.manage(companyLake)
+    fun update(companyLake: CompanyLake) = companyLakeUseCase.createOrUpdate(companyLake)
 
     @Delete("/{id}")
     fun delete(id: Int) = companyLakeUseCase.manage(id)

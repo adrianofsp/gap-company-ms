@@ -16,7 +16,7 @@ interface BaseRepository<T: Entity<*>> {
         paginationCommand: PaginationCommand
     ): Publisher<T>
 
-    fun save(entity: T): T?
+    fun save(entity: T): T
 
     fun update(entity: T): Publisher<T>
 

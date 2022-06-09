@@ -1,9 +1,10 @@
 package com.atis.gap.ports.usecases
 
-import org.reactivestreams.Publisher
+import com.atis.gap.application.domain.enterprise.Entity
 
-interface CrudUseCase<E> {
+interface CrudUseCase<E: Entity<*>, T> {
 
-    fun <T> manage(entity: T): T
+    fun createOrUpdate(entity: E): E
+    fun removeById(id: T)
 
 }
