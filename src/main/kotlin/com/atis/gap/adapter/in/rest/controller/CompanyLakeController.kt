@@ -1,13 +1,11 @@
 package com.atis.gap.adapter.`in`.rest.controller
 
-import com.atis.gap.application.domain.enterprise.Company
 import com.atis.gap.application.domain.enterprise.CompanyLake
 import com.atis.gap.extensions.PaginationCommand
 import com.atis.gap.ports.repository.CompanyLakeRepository
-import com.atis.gap.ports.repository.CompanyRepository
 import com.atis.gap.ports.usecases.CompanyLakeUseCase
-import com.atis.gap.ports.usecases.CompanyUseCase
 import io.micronaut.http.annotation.*
+import org.bson.types.ObjectId
 import javax.validation.Valid
 
 @Controller("/company/lake")
@@ -35,6 +33,6 @@ open class CompanyLakeController(
     fun update(companyLake: CompanyLake) = companyLakeUseCase.createOrUpdate(companyLake)
 
     @Delete("/{id}")
-    fun delete(id: Int) = companyLakeUseCase.manage(id)
+    fun delete(id: ObjectId) = companyLakeUseCase.removeById(id)
 
 }

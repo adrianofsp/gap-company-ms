@@ -17,15 +17,4 @@ class CompanyLakeService(
         TODO("Not yet implemented")
     }
 
-
-//    override fun <T> manage(entity: T): T {
-//        when (entity) {
-//            is CompanyLake -> {
-//                if(entity.id == null) companyLakeRepository.save(entity)
-////                else companyLakeRepository.update(entity)
-//            }
-//            is Int -> companyLakeRepository.deleteById(entity)
-//            else -> throw Exception()
-//        }
-//    }
 }
