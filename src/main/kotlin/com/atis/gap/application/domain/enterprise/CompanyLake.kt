@@ -12,7 +12,7 @@ import javax.validation.constraints.NotBlank
 @Introspected
 data class CompanyLake @Creator @BsonCreator constructor(
     @BsonId
-    override var id: ObjectId?,
+    override var id: ObjectId? = null,
 
     @NonNull
     @NotBlank
@@ -25,8 +25,8 @@ data class CompanyLake @Creator @BsonCreator constructor(
     var taxCode: String,
 
     @BsonProperty("state")
-    var state: String?,
+    var state: String? = null,
 
     @BsonProperty("postalCode")
-    var postalCode: String?
+    var postalCode: String? = null
 ) : Entity<ObjectId>

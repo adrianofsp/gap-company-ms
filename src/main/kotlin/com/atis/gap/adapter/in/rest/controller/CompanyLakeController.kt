@@ -15,6 +15,10 @@ open class CompanyLakeController(
     private val companyLakeUseCase: CompanyLakeUseCase,
     private val companyLakeRepository: CompanyLakeRepository
 ) {
+
+    @Get("/health")
+    fun isHealth() = true
+
     @Get("/{?paginationCommand*}")
     open fun list(@Valid paginationCommand: PaginationCommand) = companyLakeRepository.findAll(paginationCommand)
 

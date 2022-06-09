@@ -13,7 +13,7 @@ abstract class MongoRepository<T: Entity<*>> (
     private val clazz: Class<T>
 ) {
 
-    private fun <R> withCollection(fn: MongoCollection<T>.() -> R): R =
+    protected fun <R> withCollection(fn: MongoCollection<T>.() -> R): R =
         mongoDatabase
             .getCollection(collectionName, clazz)
             .let(fn)

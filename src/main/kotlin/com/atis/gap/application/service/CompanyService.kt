@@ -13,7 +13,9 @@ class CompanyService(
     override fun <T> manage(entity: T) {
         when (entity) {
             is Company -> {
-                if(entity.id == null) companyRepository.save(entity)
+                if(entity.id == null) {
+                    companyRepository.save(entity)
+                }
                 else companyRepository.update(entity)
             }
             is Int -> companyRepository.deleteById(entity)
