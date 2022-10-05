@@ -1,6 +1,11 @@
 package com.atis.gap.ports.usecases
 
-import com.atis.gap.application.domain.enterprise.CompanyLake
-import org.bson.types.ObjectId
+import com.atis.gap.extensions.annotations.State
+import org.reactivestreams.Publisher
 
-interface CompanyLakeUseCase: CrudUseCase<CompanyLake, ObjectId>
+interface CompanyLakeUseCase {
+
+    fun findAll()
+
+}
+//    : CrudUseCase<CompanyLake, ObjectId>

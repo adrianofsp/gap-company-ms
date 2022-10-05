@@ -12,4 +12,4 @@ data class Company @Creator @BsonCreator constructor(
     override var id: ObjectId? = null,
     @BsonProperty("name")
     var name: String
-): Entity<ObjectId>
+): IIdentifier<ObjectId>

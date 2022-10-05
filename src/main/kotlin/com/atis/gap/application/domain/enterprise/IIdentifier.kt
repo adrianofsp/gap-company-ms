@@ -1,5 +1,5 @@
 package com.atis.gap.application.domain.enterprise
 
-interface Entity<T> {
+interface IIdentifier<T> {
     var id: T?
 }

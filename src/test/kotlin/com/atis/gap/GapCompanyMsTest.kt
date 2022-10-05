@@ -1,19 +1,15 @@
 package com.atis.gap
-import com.atis.gap.adapter.`in`.rest.controller.CompanyLakeController
-import com.atis.gap.application.domain.enterprise.CompanyLake
-import com.atis.gap.extensions.PaginationCommand
+import com.atis.gap.adapter.`in`.rest.CompanyLakeController
 import com.atis.gap.mocks.mock
 import com.atis.gap.ports.repository.CompanyLakeRepository
 import com.atis.gap.ports.usecases.CompanyLakeUseCase
 import io.kotest.core.spec.style.AnnotationSpec
-import io.kotest.matchers.shouldBe
 import io.micronaut.http.client.HttpClient
 import io.micronaut.http.client.annotation.Client
 import io.micronaut.test.extensions.kotest.annotation.MicronautTest
 import io.mockk.MockKAnnotations
 import io.mockk.every
 import io.mockk.impl.annotations.MockK
-import io.mockk.impl.annotations.SpyK
 import io.mockk.junit5.MockKExtension
 import io.mockk.verify
 import org.junit.jupiter.api.extension.ExtendWith
@@ -56,13 +52,13 @@ class GapCompanyMsTest(
         val companyLake = companyLakeRepository.mock()
 
         every {
-            companyLakeUseCase.manage<CompanyLake>(any())
+            companyLakeUseCase.createOrUpdate(any())
         } returns companyLake
 
         companyLakeController.create(companyLake)
 
         verify(exactly = 1) {
-            companyLakeUseCase.manage<CompanyLake>(
+            companyLakeUseCase.createOrUpdate(
                 match {
                     it.name == companyLake.name &&
                     it.postalCode == companyLake.postalCode

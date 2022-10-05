@@ -1,20 +1,36 @@
 package com.atis.gap.application.service
 
-import com.atis.gap.application.domain.enterprise.CompanyLake
+import com.atis.gap.extensions.annotations.State
+import com.atis.gap.extensions.annotations.StateRepository
 import com.atis.gap.ports.repository.CompanyLakeRepository
 import com.atis.gap.ports.usecases.CompanyLakeUseCase
 import jakarta.inject.Singleton
-import org.bson.types.ObjectId
+import reactor.core.publisher.Mono
 
 @Singleton
 class CompanyLakeService(
-    private val companyLakeRepository: CompanyLakeRepository
+    private val op: StateRepository
 ): CompanyLakeUseCase  {
 
-    override fun createOrUpdate(entity: CompanyLake) = companyLakeRepository.save(entity)
+    //    override fun createOrUpdate(entity: CompanyLake) = companyLakeRepository.save(entity)
+//
+//    override fun removeById(id: ObjectId) {
+//        TODO("Not yet implemented")
+//    }
+    override fun findAll() {
+        Mono.from(
+            op.collection.find().first()
+        ).subscribe({
+            println(it)
+        },{
+            println(it)
+        })
 
-    override fun removeById(id: ObjectId) {
-        TODO("Not yet implemented")
     }
+
+//        println(stubRepo01.withCollection())
+
+//        companyLakeRepository.findAll()
+
 
 }

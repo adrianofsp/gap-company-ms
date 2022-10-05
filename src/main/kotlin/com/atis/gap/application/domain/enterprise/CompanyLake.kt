@@ -11,6 +11,7 @@ import javax.validation.constraints.NotBlank
 
 @Introspected
 data class CompanyLake @Creator @BsonCreator constructor(
+
     @BsonId
     override var id: ObjectId? = null,
 
@@ -29,4 +30,4 @@ data class CompanyLake @Creator @BsonCreator constructor(
 
     @BsonProperty("postalCode")
     var postalCode: String? = null
-) : Entity<ObjectId>
+) : IIdentifier<ObjectId>

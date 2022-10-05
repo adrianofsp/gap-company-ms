@@ -1,13 +1,4 @@
-package com.atis.gap.adapter.`in`.rest.controller
-
-import com.atis.gap.application.domain.enterprise.Company
-import com.atis.gap.extensions.PaginationCommand
-import com.atis.gap.ports.repository.CompanyRepository
-import com.atis.gap.ports.usecases.CompanyUseCase
-import io.micronaut.http.annotation.Controller
-import io.micronaut.http.annotation.Get
-import org.slf4j.LoggerFactory
-import javax.validation.Valid
+package com.atis.gap.adapter.`in`.rest
 
 //@Controller("/company")
 //open class CompanyController(

@@ -14,6 +14,7 @@ fun CompanyLakeRepository.mock(
     taxCode: String = (1..9)
         .map { numberPool.random() }
         .joinToString(""),
+
 ) = CompanyLake(ObjectId(), name, taxCode, "SP", "015839009")
 
 fun CompanyLakeRepository.mock(
